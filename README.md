@@ -1,2 +1,35 @@
 # MarsRoverChallenge
-THE CHALLENGE A squad of robotic rovers are to be landed by NASA on a plateau on Mars. This plateau, which is curiously rectangular, must be navigated by the rovers so that their on- board cameras can get a complete view of the surrounding terrain to send back to Earth. A rover’s position and location are represented by a combination of x and y co-ordinates and a letter representing one of the four cardinal compass points. The plateau is divided up into a grid to simplify navigation. An example position might be 0, 0, N, which means the rover is in the bottom left corner and facing North. In order to control a rover, NASA sends a simple string of letters. The possible letters are ‘L’, ‘R’ and ‘M’. ‘L’ and ‘R’ makes the rover spin 90 degrees left or right respectively, without moving from its current spot. ‘M’ means move forward one grid point, and maintains the same heading. Assume that the square directly North from (x, y) is (x, y+1).
+Project building step
+step1: Pull the project from git repository.
+step2: Go to the source folder and build it using below command.
+  mvn clean install
+step3: Go to the target  folder and run jar file using below command.
+ java -jar target/MarsOverChallenge-1.0.jar
+ 
+ Service endpoint URL
+http://localhost:8080/getRoverCordination
+
+Request JSON 
+{
+  "x": 5,
+  "y": 5,
+  "roverList": [{
+    "roverX": 1,
+    "roverY": 2,
+    "direction": "N",
+    "roverCommand": "LMLMLMLMM"
+  }, {
+    "roverX": -3,
+    "roverY": 3,
+    "direction": "E",
+    "roverCommand": "MMRMMRMRRM"
+  }]
+}
+Response JSON
+{
+  "roversPath": ["1 3 N", "5 1 E"],
+  "errorDescription": "success"
+}
+
+Swagger URL details.
+http://localhost:8080/swagger-ui.html#/mars-rover-controller/getRoverCordinationUsingPOST
