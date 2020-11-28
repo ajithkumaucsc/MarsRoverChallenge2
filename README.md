@@ -1,9 +1,14 @@
 # MarsRoverChallenge
 Project building step
+
 step1: Pull the project from git repository.
+
 step2: Go to the source folder and build it using below command.
+
   mvn clean install
+  
 step3: Go to the target  folder and run jar file using below command.
+
  java -jar target/MarsOverChallenge-1.0.jar
  
  Service endpoint URL
